@@ -10,7 +10,7 @@ Our software engine is open source. If you have a suggestion for the site, or yo
 OpenSplitTime is developed and maintained by endurance athletes for endurance athletes.
 
 Ruby on Rails
--------------
+------------- test
 
 This application requires:
 
