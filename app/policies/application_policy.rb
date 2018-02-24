@@ -1,11 +1,16 @@
 class ApplicationPolicy
   class Scope
-    attr_reader :user, :scope
+    attr_reader :user, :scope, :editable_only
 
-    def initialize(user, scope)
+    def initialize(user, scope, editable_only: false)
       @user = user
       @scope = scope
+      @editable_only = editable_only
       post_initialize
+    end
+
+    def resolve
+      editable_only ? resolve_editable : resolve_viewable
     end
 
     def resolve_editable

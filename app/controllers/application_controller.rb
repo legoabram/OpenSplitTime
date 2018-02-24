@@ -57,6 +57,10 @@ class ApplicationController < ActionController::Base
     User.current = current_user
   end
 
+  def json_web_token_present?
+    current_user&.has_json_web_token
+  end
+
   def set_flash_message(response)
     if response.successful?
       flash[:success] = [flash[:success], response.message].compact.join("\n")

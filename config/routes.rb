@@ -160,6 +160,10 @@ Rails.application.routes.draw do
       post 'staging/:id/post_event_course_org', to: 'staging#post_event_course_org', as: :staging_post_event_course_org
       patch 'staging/:id/update_event_visibility', to: 'staging#update_event_visibility', as: :staging_update_event_visibility
     end
+
+    namespace :v2 do
+      resources :courses, only: [:index, :show, :create, :update, :destroy]
+    end
   end
 
   namespace :event_staging do
