@@ -6,11 +6,11 @@ class EventEffortsDisplay < EventWithEffortsPresenter
             .order(sort_hash)
             .where(filter_hash)
             .search(search_text)
-            .paginate(page: page, per_page: per_page)
+            .page(page).per(per_page)
   end
 
   def filtered_unstarted_efforts_count
-    filtered_unstarted_efforts.total_entries
+    filtered_unstarted_efforts.total_count
   end
 
   def display_style

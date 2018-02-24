@@ -12,7 +12,7 @@ class UsersController < ApplicationController
                      .order(prepared_params[:sort])
     respond_to do |format|
       format.html do
-        @resources = @resources.paginate(page: prepared_params[:page], per_page: prepared_params[:per_page])
+        @resources = @resources.page(prepared_params[:page]).per(prepared_params[:per_page])
       end
       format.csv do
         csv_stream = render_to_string(partial: 'users.csv.ruby', locals: {users: @resources})

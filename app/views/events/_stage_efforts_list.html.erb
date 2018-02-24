@@ -27,7 +27,7 @@
 
         <div class="row">
           <div class="col-xs-8">
-            <%= will_paginate(@event_stage.filtered_efforts, inner_window: 2, outer_window: 0) %>
+            <%= paginate(@event_stage.filtered_efforts) %>
           </div>
         </div>
 
@@ -77,7 +77,7 @@
 
         <div class="row">
           <div class="col-xs-8">
-            <%= will_paginate(@event_stage.filtered_efforts, inner_window: 2, outer_window: 0) %>
+            <%= paginate(@event_stage.filtered_efforts) %>
           </div>
         </div>
 

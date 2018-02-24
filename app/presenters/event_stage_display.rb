@@ -13,11 +13,11 @@ class EventStageDisplay < EventWithEffortsPresenter
                               .where(filter_hash)
                               .order(sort_hash.presence || :bib_number)
                               .select { |effort| matches_criteria?(effort) }
-                              .paginate(page: page, per_page: per_page)
+                              .page(page).per(per_page)
   end
 
   def filtered_efforts_count
-    filtered_efforts.total_entries
+    filtered_efforts.total_count
   end
 
   def course_splits
@@ -41,7 +41,7 @@ class EventStageDisplay < EventWithEffortsPresenter
                                  .includes(:split).includes(event: :aid_stations)
                                  .where(filter_hash)
                                  .order(sort_hash.presence || {created_at: :desc})
-                                 .paginate(page: page, per_page: per_page)
+                                 .page(page).per(per_page)
   end
 
   def display_style

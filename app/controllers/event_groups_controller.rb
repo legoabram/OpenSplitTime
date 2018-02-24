@@ -8,7 +8,7 @@ class EventGroupsController < ApplicationController
     @event_groups = EventGroup.where(id: scoped_event_groups.map(&:id))
                         .includes(events: :efforts).includes(:organization)
                         .sort_by { |event_group| -event_group.start_time.to_i }
-                        .paginate(page: params[:page], per_page: 25)
+                        .page(params[:page]).per(10)
     @presenter = EventGroupsCollectionPresenter.new(@event_groups, params, current_user)
     session[:return_to] = event_groups_path
   end

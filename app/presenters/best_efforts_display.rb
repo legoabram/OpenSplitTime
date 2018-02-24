@@ -11,7 +11,7 @@ class BestEffortsDisplay < BasePresenter
   end
 
   def filtered_efforts
-    selected_efforts.paginate(page: page, per_page: per_page)
+    selected_efforts.page(page).per(per_page)
   end
 
   def selected_efforts
@@ -25,7 +25,7 @@ class BestEffortsDisplay < BasePresenter
   end
 
   def filtered_efforts_count
-    filtered_efforts.total_entries
+    filtered_efforts.total_count
   end
 
   def effort_rows

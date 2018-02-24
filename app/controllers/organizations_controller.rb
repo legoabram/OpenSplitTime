@@ -4,9 +4,8 @@ class OrganizationsController < ApplicationController
   after_action :verify_authorized, except: [:index, :show]
 
   def index
-    @organizations = OrganizationPolicy::Scope.new(current_user, Organization).viewable.order(:name)
-                         .paginate(page: params[:page], per_page: 25)
-    @presenter = OrganizationsPresenter.new(@organizations, params, current_user)
+    organizations = OrganizationPolicy::Scope.new(current_user, Organization).viewable.order(:name).page(params[:page]).per(25)
+    @presenter = OrganizationsPresenter.new(organizations, params, current_user)
     session[:return_to] = organizations_path
   end
 

@@ -4,11 +4,11 @@ class SplitsController < ApplicationController
   after_action :verify_authorized, except: [:index, :show]
 
   def index
-    @splits = Split.order(prepared_params[:sort] || :course_id, :distance_from_start)
+    @splits = Split.order(prepared_params[:sort] || [:course_id, :distance_from_start])
                   .where(prepared_params[:filter])
     respond_to do |format|
       format.html do
-        @splits = @splits.paginate(page: prepared_params[:page], per_page: prepared_params[:per_page] || 25)
+        @splits = @splits.page(prepared_params[:page]).per(prepared_params[:per_page] || 25)
       end
       format.csv do
         builder = CsvBuilder.new(@splits)

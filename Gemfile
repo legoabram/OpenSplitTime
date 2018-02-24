@@ -16,11 +16,7 @@ gem 'devise', '~> 4.4'
 gem 'devise-bootstrap-views'
 gem 'pundit'
 gem 'alchemist'
-gem 'roo'
-gem 'roo-xls'
 gem 'carmen'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
 gem 'api-pagination'
 gem 'twitter-bootstrap-rails'
 gem 'pg', '~> 0.20'
@@ -53,6 +49,11 @@ gem 'webpacker', '~> 3.0'
 gem 'gpx'
 gem 'activerecord-import'
 
+gem 'jsonapi_suite', '~> 0.7'
+gem 'jsonapi-rails', '~> 0.3.0'
+gem 'jsonapi_swagger_helpers', '~> 0.6', require: false
+gem 'jsonapi_spec_helpers', '~> 0.4', require: false
+gem 'kaminari', '~> 1.0'
 
 group :development do
   gem 'bullet'

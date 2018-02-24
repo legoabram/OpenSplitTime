@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     @events = policy_class::Scope.new(current_user, controller_class).viewable
                   .select_with_params(params[:search])
                   .order(start_time: :desc)
-                  .paginate(page: params[:page], per_page: 25)
+                  .page(params[:page])
     @presenter = EventsCollectionPresenter.new(@events, params, current_user)
     session[:return_to] = events_path
   end

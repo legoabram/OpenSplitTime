@@ -18,7 +18,7 @@ class PeopleController < ApplicationController
                         .search(prepared_params[:search])
                         .with_age_and_effort_count
                         .order(prepared_params[:sort_text])
-                        .paginate(page: params[:page], per_page: 25)
+                        .page(params[:page]).per(25)
     session[:return_to] = people_path
   end
 

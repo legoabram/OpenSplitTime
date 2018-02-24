@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
   after_action :verify_authorized, except: [:index, :show, :best_efforts, :segment_picker, :plan_effort]
 
   def index
-    @courses = Course.paginate(page: params[:page], per_page: 25).order(:name)
+    @courses = Course.page(params[:page]).per(25).order(:name)
     session[:return_to] = courses_path
   end
 

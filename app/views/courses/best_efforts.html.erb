@@ -39,7 +39,7 @@
     <% if @best_display.filtered_efforts_count > 0 %>
         <div class="row">
           <div class="col-xs-8">
-            <%= will_paginate(@best_display.filtered_efforts, inner_window: 2, outer_window: 0) %>
+            <%= paginate(@best_display.filtered_efforts) %>
           </div>
         </div>
 
@@ -47,7 +47,7 @@
 
         <div class="row">
           <div class="col-xs-8">
-            <%= will_paginate(@best_display.filtered_efforts, inner_window: 2, outer_window: 0) %>
+            <%= paginate(@best_display.filtered_efforts) %>
           </div>
         </div>
     <% elsif params[:search].present? && params[:search].length < 3 %>

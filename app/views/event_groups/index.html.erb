@@ -25,7 +25,7 @@
 
 <div class="row">
   <div class="col-xs-8">
-    <%= will_paginate(inner_window: 2, outer_window: 0) %>
+    <%= paginate(@presenter.event_groups) %>
   </div>
 </div>
 
@@ -47,6 +47,6 @@
 <hr>
 <div class="row">
   <div class="col-xs-8">
-    <%= will_paginate(inner_window: 2, outer_window: 0) %>
+    <%= paginate(@presenter.event_groups) %>
   </div>
 </div>

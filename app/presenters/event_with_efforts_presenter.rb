@@ -28,7 +28,7 @@ class EventWithEffortsPresenter < BasePresenter
     @filtered_ranked_efforts ||=
         ranked_efforts
             .select { |effort| filtered_ids.include?(effort.id) }
-            .paginate(page: page, per_page: per_page)
+            .page(page)
   end
 
   def event_efforts
@@ -48,7 +48,7 @@ class EventWithEffortsPresenter < BasePresenter
   end
 
   def filtered_ranked_efforts_count
-    filtered_ranked_efforts.total_entries
+    filtered_ranked_efforts.total_count
   end
 
   def course_name
