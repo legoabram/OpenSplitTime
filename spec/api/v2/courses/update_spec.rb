@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "courses#update", type: :request do
   subject(:make_request) do
-    jsonapi_put "/api/v1/courses/#{course.id}", payload
+    jsonapi_put "/api/v2/courses/#{course.id}", payload
   end
 
   describe 'basic update' do

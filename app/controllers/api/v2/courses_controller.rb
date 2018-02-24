@@ -4,7 +4,7 @@ class Api::V2::CoursesController < JsonapiSuiteController
 
   def index
     authorize Course
-    scope = CoursePolicy::Scope.new(current_user, Course, editable_only: editable?).resolve
+    scope = CoursePolicy::Scope.new(current_user, Course, editable_only: editable_filter?).resolve
     render_jsonapi(scope)
   end
 

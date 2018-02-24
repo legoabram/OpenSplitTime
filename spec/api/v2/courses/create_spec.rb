@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "courses#create", type: :request do
   subject(:make_request) do
-    jsonapi_post "/api/v1/courses", payload
+    jsonapi_post "/api/v2/courses", payload
   end
 
   describe 'basic create' do
@@ -11,16 +11,14 @@ RSpec.describe "courses#create", type: :request do
         data: {
           type: 'courses',
           attributes: {
-            # ... your attrs here
+            name: 'Test Course'
           }
         }
       }
     end
 
     it 'creates the resource' do
-      expect {
-        make_request
-      }.to change { Course.count }.by(1)
+      expect { make_request }.to change { Course.count }.by(1)
       course = Course.last
 
       assert_payload(:course, course, json_item)

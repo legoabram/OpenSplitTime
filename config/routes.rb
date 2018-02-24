@@ -124,6 +124,8 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
+    resources :docs, only: [:index], path: '/swagger'
+
     namespace :v1 do
       resources :aid_stations, only: [:show, :create, :update, :destroy]
       resources :courses, only: [:index, :show, :create, :update, :destroy]

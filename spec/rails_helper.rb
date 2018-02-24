@@ -17,6 +17,7 @@ require 'json'
 require 'active_support/core_ext/hash/keys'
 require 'active_support/inflector'
 require 'rack/test'
+require 'jsonapi_spec_helpers'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

@@ -20,7 +20,7 @@ class JsonapiSuiteController < ApplicationController
 
   private
 
-  def editable?
+  def editable_filter?
     params.dig(:filter, :editable)&.to_boolean
   end
 

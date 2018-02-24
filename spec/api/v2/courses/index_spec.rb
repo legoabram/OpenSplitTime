@@ -4,7 +4,7 @@ RSpec.describe "courses#index", type: :request do
   let(:params) { {} }
 
   subject(:make_request) do
-    jsonapi_get "/api/v1/courses",
+    jsonapi_get "/api/v2/courses",
       params: params
   end
 
